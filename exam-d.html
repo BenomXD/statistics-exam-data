@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statistics Exam Data</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f7fa;color:#17202a}
+.wrap{max-width:1100px;margin:auto;padding:22px 16px 60px}
+.card{background:#fff;border:1px solid #d8dee6;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+h1{margin:0 0 8px;font-size:25px} h2{margin:0 0 14px;font-size:21px} h3{margin:0 0 12px}
+.note{color:#586473;font-size:13px;line-height:1.45}
+.code{display:inline-block;background:#fff7db;border:1px solid #e8d58c;border-radius:8px;padding:8px 12px;font-weight:800;letter-spacing:.5px;margin-bottom:10px}
+nav{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
+nav a{background:#fff;border:1px solid #d8dee6;padding:7px 10px;border-radius:8px;text-decoration:none;font-weight:700;color:#2057a6}
+.formulas{display:flex;flex-direction:column;gap:16px}
+.formula{border:1px solid #d5ddd8;border-radius:12px;padding:18px;width:100%;background:#fff}
+.eq{font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:clamp(22px,2.5vw,32px);text-align:center;min-height:112px;padding:14px 8px;display:flex;align-items:center;justify-content:center;overflow:visible}
+.eq math{font-size:1em;white-space:nowrap}
+.tpl{background:#f1f3f5;border-radius:8px;padding:9px 10px;font-family:Consolas,monospace;font-size:13px;overflow:auto}
+.symbols{font-size:13px;color:#4c5966;line-height:1.5;margin-top:10px}
+.table-title{font-weight:800;font-size:17px;margin:12px 0 7px}
+.tw{overflow:auto;margin-bottom:14px}
+table{border-collapse:collapse;background:#fff}
+th,td{border:1px solid #9fa9b4;padding:8px 11px;text-align:center;white-space:nowrap}
+th{background:#eef2f6}
+.raw{table-layout:fixed;width:min(100%,680px)}
+.raw td{width:auto}
+.data-table{min-width:560px}
+.copy{border:0;border-radius:9px;background:#12834f;color:#fff;font-weight:800;padding:11px 15px;cursor:pointer}
+.copy:hover{filter:brightness(.96)}
+#status{font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="card" id="status">Opening exam data…</section>
+<main id="app" style="display:none"></main>
+</div>
+<script>
+const IV="5RhfdilJnWvw5heR";
+const CT="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";
+
+function b64(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+async function decrypt(){
+  const token=new URLSearchParams(location.search).get('t');
+  if(!token) throw new Error('missing');
+  const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(token));
+  const key=await crypto.subtle.importKey('raw',digest,{name:'AES-GCM'},false,['decrypt']);
+  const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(IV)},key,b64(CT));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
+function tableHTML(t){
+  let h=`<div class="table-title">${esc(t.title)}</div><div class="tw"><table class="${t.raw?'raw':'data-table'}">`;
+  if(t.headers && t.headers.length) h += '<thead><tr>'+t.headers.map(v=>`<th>${esc(v)}</th>`).join('')+'</tr></thead>';
+  h+='<tbody>'+t.rows.map(r=>'<tr>'+r.map(v=>`<td>${esc(v)}</td>`).join('')+'</tr>').join('')+'</tbody></table></div>';
+  return h;
+}
+
+function tsvForBlock(b){
+  return b.tables.map(t=>{
+    let lines=[];
+    if(t.headers && t.headers.length) lines.push(t.headers.join('\t'));
+    for(const r of t.rows) lines.push(r.join('\t'));
+    return lines.join('\n');
+  }).join('\n\n');
+}
+
+async function copyBlock(i,btn){
+  const txt=tsvForBlock(window.DATA.blocks[i]);
+  await navigator.clipboard.writeText(txt);
+  const old=btn.textContent;
+  btn.textContent='COPIED — PASTE IN EXCEL';
+  setTimeout(()=>btn.textContent=old,1400);
+}
+
+const formulaHTML=`
+<section class="card">
+<h2>Grouped-data formulas</h2>
+<div class="formulas">
+
+<div class="formula">
+<h3>Grouped mean</h3>
+<div class="eq">
+<math display="block">
+  <mrow>
+    <msub><mover accent="true"><mi>x</mi><mo>¯</mo></mover><mi>g</mi></msub>
+    <mo>=</mo>
+    <mfrac>
+      <mrow><mo>∑</mo><msub><mi>f</mi><mi>i</mi></msub><msub><mi>x</mi><mi>i</mi></msub></mrow>
+      <mi>n</mi>
+    </mfrac>
+  </mrow>
+</math>
+</div>
+<div class="tpl">=SUMA(fi_xi)/SUMA(fi)</div>
+<div class="symbols"><b>fi_xi</b>: the already-calculated <i>f</i><sub>i</sub>×<i>x</i><sub>i</sub> column · <b>fi</b>: frequency column · <b>n</b>: total frequency.</div>
+</div>
+
+<div class="formula">
+<h3>Grouped median</h3>
+<div class="eq">
+<math display="block">
+  <mrow>
+    <msub><mover accent="true"><mi>x</mi><mo>˜</mo></mover><mi>g</mi></msub>
+    <mo>=</mo>
+    <msub><mi>L</mi><mi>m</mi></msub>
+    <mo>+</mo>
+    <mrow>
+      <mo>(</mo>
+      <mfrac>
+        <mrow><mfrac><mi>n</mi><mn>2</mn></mfrac><mo>−</mo><msub><mi>F</mi><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow>
+        <msub><mi>f</mi><mi>m</mi></msub>
+      </mfrac>
+      <mo>)</mo>
+    </mrow>
+    <mi>h</mi>
+  </mrow>
+</math>
+</div>
+<div class="tpl">=L_m+((n/2-F_prev)/f_m)*h</div>
+<div class="symbols"><b>L<sub>m</sub></b>: lower limit of median class · <b>F<sub>prev</sub></b>: cumulative frequency before the median class · <b>f<sub>m</sub></b>: median-class frequency · <b>h</b>: class width.</div>
+</div>
+
+<div class="formula">
+<h3>Grouped mode</h3>
+<div class="eq">
+<math display="block">
+  <mrow>
+    <msub><mi>Mo</mi><mi>g</mi></msub>
+    <mo>=</mo>
+    <msub><mi>L</mi><mi>mo</mi></msub>
+    <mo>+</mo>
+    <mrow>
+      <mo>[</mo>
+      <mfrac>
+        <mrow><msub><mi>f</mi><mi>mo</mi></msub><mo>−</mo><msub><mi>f</mi><mrow><mi>mo</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow>
+        <mrow>
+          <mo>(</mo><msub><mi>f</mi><mi>mo</mi></msub><mo>−</mo><msub><mi>f</mi><mrow><mi>mo</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>)</mo>
+          <mo>+</mo>
+          <mo>(</mo><msub><mi>f</mi><mi>mo</mi></msub><mo>−</mo><msub><mi>f</mi><mrow><mi>mo</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>)</mo>
+        </mrow>
+      </mfrac>
+      <mo>]</mo>
+    </mrow>
+    <mi>h</mi>
+  </mrow>
+</math>
+</div>
+<div class="tpl">=L_mo+((f_mo-f_prev)/((f_mo-f_prev)+(f_mo-f_next)))*h</div>
+<div class="symbols"><b>L<sub>mo</sub></b>: lower limit of modal class · <b>f<sub>mo</sub></b>: modal-class frequency · <b>f<sub>prev</sub></b>: previous-class frequency · <b>f<sub>next</sub></b>: next-class frequency · <b>h</b>: class width.</div>
+</div>
+
+</div>
+</section>`;
+
+function render(d){
+  window.DATA=d;
+  let h=`<section class="card"><h1>${esc(d.title)}</h1><p>Find the <b>DATA CODE</b> shown in evPraxis, click <b>COPY DATA TO EXCEL</b>, and paste the data into Excel.</p></section>`;
+  h += '<nav>'+d.blocks.map(b=>`<a href="#${b.code}">${b.code}</a>`).join('')+'</nav>';
+  h += formulaHTML;
+  d.blocks.forEach((b,i)=>{
+    h += `<section class="card" id="${b.code}"><div class="code">DATA CODE: ${b.code}</div>`;
+    h += b.tables.map(tableHTML).join('');
+    h += `<button class="copy" onclick="copyBlock(${i},this)">COPY DATA TO EXCEL</button></section>`;
+  });
+  app.innerHTML=h;
+  app.style.display='block';
+  status.style.display='none';
+}
+
+decrypt().then(render).catch(()=>{status.textContent='Invalid access link.'});
+</script>
+</body>
+</html>
